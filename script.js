@@ -34,6 +34,7 @@ function simulador(){
 
                
         } else if (opcion === "4"){
+            confirm("¿Estas seguro que quieres cerrar el simulador?")
             alert("Simulador cerrado")        
         } else {
             alert("Opción inválida. Intente nuevamente")
