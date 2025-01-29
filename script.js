@@ -1,6 +1,6 @@
 
 let canciones =[
-    {nombre: "Perfect", cantante: "Ed Sheran"},
+    {nombre: "Perfect", cantante: "Ed Sheeran"},
     {nombre: "Piel", cantante: "Thiago"}];
 
 function simulador(){
