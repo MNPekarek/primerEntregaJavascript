@@ -1,7 +1,12 @@
 
 let canciones = [
+    { nombre: "Cicatrices", cantante: "Airbag" },
+    { nombre: "Goteo", cantante: "Duki" },    
+    { nombre: "Numb", cantante: "Linkin Park" },
     { nombre: "Perfect", cantante: "Ed Sheeran" },
-    { nombre: "Piel", cantante: "Thiago" }];
+    { nombre: "Piel", cantante: "Thiago" },
+    { nombre: "Por mil noches", cantante: "Airbag" }];
+    
 
 // function simulador() {
 
@@ -44,12 +49,31 @@ let canciones = [
 
     // simulador()
 
+
+    const tablaInfo = document.getElementById("tablaInfo")
+    const tabla =document.getElementById("tabla")
+
+    canciones.forEach(musica => {
+        const fila = document.createElement("tr")
+        fila.innerHTML = 
+        `<td>${musica.nombre}
+        <td>${musica.cantante}`
+        tablaInfo.appendChild(fila)
+    })
+
+
     let btn1 = document.getElementById("button1")
 
     btn1.addEventListener("click", () => {
-        for (let objeto of canciones) {
-        alert(`Canción: ${objeto.nombre}, Cantante: ${objeto.cantante}`)
-    }})
+        if (tabla.style.display === "none") {
+            tabla.style.display = "table"
+            boton.textContent = "Ocultar Tabla"
+        } else {
+            tabla.style.display = "none"
+            boton.textContent = "Mostrar Tabla"
+        }
+                
+    })
 
 
 
