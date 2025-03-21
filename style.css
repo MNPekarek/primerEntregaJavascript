@@ -5,3 +5,17 @@ table {
 .enviado {
     color: green;
 }
+
+.btn-fav{
+    background-color: transparent;
+    border: none;
+}
+
+.active {
+    background-color: gray;
+}
+
+#button3{
+    color: red;
+    padding: 15px;
+}
