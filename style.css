@@ -1,21 +1,84 @@
-table {
-    display: none;
+body{
+    background: #355C7D;  
+background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);  
+background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
 }
 
-.enviado {
-    color: green;
+.table {
+    display: none;    
+}
+.table {
+    border-collapse: collapse ;
+    font-size: 14px;    
 }
 
-.btn-fav{
+.table {
+    --bs-table-bg: transparent !important;
+  }
+
+.table th, .table td {
+    padding: 5px; 
+    text-align: center; 
+}
+
+.table img {
+    border-radius: 5px; /
+}
+
+.table th {
+    background-color: #672b2b; 
+    color: #fff; 
+}
+
+
+.btnFavo {
     background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+}
+.btnFavo:hover {
+    color: red !important; 
+}
+
+#form {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    
+}
+
+.button{
+    background-color: #672b2b; 
+    color:  rgb(36, 34, 34);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.button:hover {
+    background-color: #601d1d;
+    color: black;
+}
+
+input {
+    background: #974d62f9;  
+    
+    border: none;
+    border-radius: 15px;
+}
+
+input:hover {
+    background: linear-gradient(to left, #C06C84, #6C5B7B, #355C7D);
+    
+}
+
+input:focus {
+    background: linear-gradient(to left, #C06C84, #6C5B7B, #355C7D);
+    color: white;
     border: none;
 }
 
-.active {
-    background-color: gray;
-}
 
-#button3{
-    color: red;
-    padding: 15px;
-}

@@ -2,116 +2,116 @@
     {
       "nombre": "Cicatrices",
       "cantante": "Airbag",
-      "imagen": "imagenes/cicatrices.png"
+      "imagen": "img/cicatrices.png"
     },
     {
       "nombre": "Goteo",
       "cantante": "Duki",
-      "imagen": "imagenes/goteo.jpg"
+      "imagen": "img/goteo.jpg"
     },
     {
       "nombre": "Numb",
       "cantante": "Linkin Park",
-      "imagen": "imagenes/numb.png"
+      "imagen": "img/numb.png"
     },
     {
       "nombre": "Perfect",
       "cantante": "Ed Sheeran",
-      "imagen": "imagenes/perfect.jpg"
+      "imagen": "img/perfect.jpg"
     },
     {
       "nombre": "Piel",
       "cantante": "Thiago",
-      "imagen": "imagenes/piel.png"
+      "imagen": "img/piel.png"
     },
     {
       "nombre": "Por mil noches",
       "cantante": "Airbag",
-      "imagen": "imagenes/por_mil_noches.jpg"
+      "imagen": "img/por_mil_noches.jpg"
     },
     {
       "nombre": "Shivers",
       "cantante": "Ed Sheeran",
-      "imagen": "imagenes/shivers.png"
+      "imagen": "img/shivers.png"
     },
     {
       "nombre": "Dance Monkey",
       "cantante": "Tones and I",
-      "imagen": "imagenes/dance_monkey.png"
+      "imagen": "img/dance_monkey.png"
     },
     {
       "nombre": "Flowers",
       "cantante": "Miley Cyrus",
-      "imagen": "imagenes/flowers.jpg"
+      "imagen": "img/flowers.jpg"
     },
     {
       "nombre": "Despechá",
       "cantante": "Rosalía",
-      "imagen": "imagenes/despecha.jpg"
+      "imagen": "img/despecha.jpg"
     },
     {
       "nombre": "La Bachata",
       "cantante": "Manuel Turizo",
-      "imagen": "imagenes/la_bachata.jpg"
+      "imagen": "img/la_bachata.jpg"
     },
     {
       "nombre": "Titi Me Preguntó",
       "cantante": "Bad Bunny",
-      "imagen": "imagenes/titi_me_pregunto.jpg"
+      "imagen": "img/titi_me_pregunto.jpg"
     },
     {
       "nombre": "Quevedo: Bzrp Music Sessions, Vol. 52",
       "cantante": "Bizarrap, Quevedo",
-      "imagen": "imagenes/quevedo_bzrp.png"
+      "imagen": "img/quevedo_bzrp.png"
     },
     {
       "nombre": "Monotonía",
       "cantante": "Shakira, Ozuna",
-      "imagen": "imagenes/monotonia.png"
+      "imagen": "img/monotonia.png"
     },
     {
       "nombre": "Super Shy",
       "cantante": "NewJeans",
-      "imagen": "imagenes/super_shy.jpg"
+      "imagen": "img/super_shy.jpg"
     },
     {
       "nombre": "As It Was",
       "cantante": "Harry Styles",
-      "imagen": "imagenes/as_it_was.png"
+      "imagen": "img/as_it_was.png"
     },
     {
       "nombre": "Stay",
       "cantante": "The Kid LAROI, Justin Bieber",
-      "imagen": "imagenes/stay.jpg"
+      "imagen": "img/stay.jpg"
     },
     {
       "nombre": "Industry Baby",
       "cantante": "Lil Nas X, Jack Harlow",
-      "imagen": "imagenes/industry_baby.jpg"
+      "imagen": "img/industry_baby.jpg"
     },
     {
       "nombre": "Blinding Lights",
       "cantante": "The Weeknd",
-      "imagen": "imagenes/blinding_lights.jpg"
+      "imagen": "img/blinding_lights.jpg"
     },
     {
       "nombre": "Levitating",
       "cantante": "Dua Lipa",
-      "imagen": "imagenes/levitating.png"
+      "imagen": "img/levitating.png"
     },
     {
       "nombre": "Happier Than Ever",
       "cantante": "Billie Eilish",
-      "imagen": "imagenes/happier_than_ever.png"
+      "imagen": "img/happier_than_ever.png"
     },
     {
       "nombre": "Unholy",
       "cantante": "Sam Smith, Kim Petras",
-      "imagen": "imagenes/unholy.jpg"
+      "imagen": "img/unholy.jpg"
     },
     {
       "nombre": "Heat Waves",
       "cantante": "Glass Animals",
-      "imagen": "imagenes/heat_waves.jpg"
+      "imagen": "img/heat_waves.jpg"
     }
 ]
