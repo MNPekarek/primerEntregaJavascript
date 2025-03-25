@@ -78,59 +78,103 @@ btn1.addEventListener("click", () => {
   }
 });
 
-let btn2 = document.getElementById("button2");
-let form = document.getElementById("form");
+// agregar button Agregar
 
-// agregar canciones btn2
-btn2.addEventListener("click", () => {
-  let inputName = document.getElementById("inputName");
-  let inputCantante = document.getElementById("inputCantante");
-
-  if (inputName.value.trim() !== "" && inputCantante.value.trim() !== "") {
-    canciones.push({ nombre: inputName.value, cantante: inputCantante.value });
-
-    Toastify({
-      text: `La canción ${inputName.value} fue agregada con exito`,
-      style: {
-        background: "green",},
-    }).showToast();
-
-    actualizarCanciones();
+let btnAgregar = document.getElementById("buttonAgregar");
+btnAgregar.addEventListener("click", () => {
+  const form = document.getElementById("form");
+  if (form) {
+    form.remove();
   } else {
-    Toastify({
-      text: `Los datos ingresados no son válidos`,
-      style: {
-        background: "red",},
-    }).showToast();
+    agregarCancionInner();
+    agregarCancionesNuevas();
   }
 });
+
+function agregarCancionInner() {
+  let AgregarCancion = document.getElementById("formAgregar");
+  const form = document.createElement("div");
+  form.id = "form";
+  form.innerHTML = `
+            <label for="name">Introducir nombre de la canción</label>
+            <input type="text" id="inputName"><br>
+            <label for="cantante">Introducir nombre del cantante</label>
+            <input type="text" id="inputCantante">
+            <button id="button2" class="button">Agregar cancion</button>
+        </div>`;
+  AgregarCancion.appendChild(form);
+}
+
+// agregar canciones btn2
+function agregarCancionesNuevas() {
+  let btn2 = document.getElementById("button2");
+  // let form = document.getElementById("form");
+
+  btn2.addEventListener("click", () => {
+    let inputName = document.getElementById("inputName");
+    let inputCantante = document.getElementById("inputCantante");
+
+    if (inputName.value.trim() !== "" && inputCantante.value.trim() !== "") {
+      canciones.push({
+        nombre: inputName.value,
+        cantante: inputCantante.value,
+      });
+
+      Toastify({
+        text: `La canción ${inputName.value} fue agregada con exito`,
+        style: {
+          background: "green",
+        },
+      }).showToast();
+
+      actualizarCanciones();
+    } else {
+      Toastify({
+        text: `Los datos ingresados no son válidos`,
+        style: {
+          background: "red",
+        },
+      }).showToast();
+    }
+  });
+}
 
 // btn3
 btn3 = document.getElementById("button3");
 
 btn3.addEventListener("click", () => {
-  let buscar = document.getElementById("buscar")
+  const contenedorExistente = document.getElementById("buscarCn");
+  if (contenedorExistente) {
+    contenedorExistente.remove();
+    return;
+  }
 
-const buscarCn = document.createElement("div")
-buscarCn.innerHTML = 
-   `<label for="buscarNombre">Ingrese el nombre de la canción</label>
-    <input type="text" id="buscarNombre">
-    <label for="cantante" id="buscarCantante">Ingrese el nombre del cantante</label>
-    <input type="text" id="cantante">
-    <button id="buscarBtn">Buscar</button>`
-    
-    buscar.appendChild(buscarCn)  
-
+  let buscar = document.getElementById("buscar");
+  const buscarCn = document.createElement("div");
+  buscarCn.id = "buscarCn";
+  buscarCn.innerHTML = `
+    <label for="buscarNombre">Ingrese el nombre de la canción</label>
+    <input type="text" id="buscarNombre"> 
+    <label for="cantante">Ingrese el nombre del cantante</label>
+    <input type="text" id="cantante"> 
+    <button id="buscarBtn">Buscar</button>
+  `;
+  buscar.appendChild(buscarCn);
 
   document.getElementById("buscarBtn").addEventListener("click", () => {
-    const nombreCancion = document.getElementById("buscarNombre").value.toUpperCase()
-    const nombreCantante = document.getElementById("cantante").value.toUpperCase()   
+    const nombreCancion = document
+      .getElementById("buscarNombre")
+      .value.toUpperCase();
+    const nombreCantante = document
+      .getElementById("cantante")
+      .value.toUpperCase();
 
     let cancionEncontrada = canciones.find(
-      (cancion) => 
-        cancion.nombre.toUpperCase() === nombreCancion || 
+      (cancion) =>
+        cancion.nombre.toUpperCase() === nombreCancion ||
         cancion.cantante.toUpperCase() === nombreCantante
     );
+
     if (cancionEncontrada) {
       Swal.fire({
         title: `<strong>${cancionEncontrada.nombre}</strong>`,
@@ -143,21 +187,27 @@ buscarCn.innerHTML =
         focusConfirm: false,
         confirmButtonText: "OK",
         customClass: {
-          poput: "poput-class",
-          title: "title-cass",
+          popup: "popup",
+          title: "title-class",
           confirmButton: "button-class",
-        }
+          closeButton: "close-button-class",
+        },
       });
-    } Swal.fire({
+      return;
+    }
+
+    Swal.fire({
       title: "No se encontró ninguna canción",
       icon: "error",
       text: "Por favor, verifica los datos ingresados.",
       confirmButtonText: "Reintentar",
+      customClass: {
+        popup: "popup-error",
+        title: "title-class-error",
+        confirmButton: "button-class-error",
+      },
     });
-  
-  })
-
-  
+  });
 });
 
 function pruebaBtnFav() {
@@ -181,7 +231,6 @@ function pruebaBtnFav() {
             background: "linear-gradient(to right, #333333, #dd1818)",
           },
         }).showToast();
-
       } else {
         console.log("La cancion ya esta en favoritas");
       }
@@ -194,13 +243,53 @@ function pruebaBtnFav() {
   });
 }
 
+btnAgregarFavoritos = document.getElementById("buttonListafavoritas");
+btnAgregarFavoritos.addEventListener("click", () => {
+  const listaFavoritas = document.getElementById("listaFavoritas");
+  if (
+    listaFavoritas.style.display === "none" ||
+    !listaFavoritas.style.display
+  ) {
+    listaFavoritas.style.display = "block";
+    actualizarFav();
+  } else {
+    listaFavoritas.style.display = "none";
+  }
+});
+
 function actualizarFav() {
   const listaFavoritas = document.getElementById("listaFavoritas");
   listaFavoritas.innerHTML = "";
 
+  const tabla = document.createElement("table");
+  tabla.classList.add("table", "table-hover");
+
+  const thead = document.createElement("thead");
+  thead.innerHTML = `
+          <tr>
+            <th>Nombre de la canción</th>
+            <th>Cantante</th>
+            <th>Favoritas</th>
+          </tr>`;
+  tabla.appendChild(thead);
+
+  const tbody = document.createElement("tbody")
   favoritas.forEach((cn) => {
-    let li = document.createElement("li");
-    li.textContent = `${cn.nombre} - ${cn.cantante}`;
-    listaFavoritas.appendChild(li);
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+            <td>${cn.nombre}</td>
+            <td>${cn.cantante}</td>
+            <td>
+              <button class="buttonCancel">❌</button>
+            </td>`;
+    tbody.appendChild(fila);
   });
+  tabla.appendChild(tbody)
+  listaFavoritas.appendChild(tabla)
 }
+
+// <button class="btnFavo" data-nombre="${musica.nombre}" data-cantante="${musica.cantante}">❌</button>
+
+// let li = document.createElement("li");
+// li.textContent = `${cn.nombre} - ${cn.cantante} `;
+// listaFavoritas.appendChild(li);

@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-    <div class="container mt-5">
-        <h1>Simulador</h1>
-        <p>Es un programa de música, te permite mostrar las canciones, agregar nuevas, buscar una pista en especial y
-            cerrar el programa.</p>
-    </div>
+  <body class="container">
+    <header>
+      <div>
+        <img class="logo" src="./img/logo/logo.png" alt="logo-de-la-pagina" >
+      </div>      
+    </header>
 
-    <div class="text-center mb-3">
+    <section class="inicio">
+      <div class="textTittle">        
+         <h1> "Descubre la magia de la música a tu alcance. Explora, escucha y conecta con los ritmos que te inspiran. Cada nota, un mundo; cada canción, una experiencia."</h1>
+         </h1>
+      </div>
+    </section> 
+
+
+    <section class="functions text-center">
         <button id="button1" class="button">Mostrar canciones</button>
-    </div>   
+      <div class="table-responsive mt-1">
+        <table id="tabla" class="table table-hover" style="display: none">
+          <thead>
+            <tr>
+              <th>Logo</th>
+              <th>Nombre de la canción</th>
+              <th>Cantante</th>
+              <th>Favoritas</th>
+            </tr>
+          </thead>
+          <tbody id="tablaInfo"></tbody>
+        </table>
+      </div>
 
-    <div class="container">
-        <div class="table-responsive">
-            <table id="tabla" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Logo</th>
-                        <th>Nombre de la canción</th>
-                        <th>Cantante</th>
-                        <th>Favoritas</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaInfo">
-                </tbody>
-            </table>
-        </div>
-    </div>   
-    
-    
+      <div>
+        <button id="buttonAgregar" class="button">
+          Agregar una canción nueva
+        </button>
+        <div id="formAgregar"></div>
+      </div>
 
-
-    <div class="container">
-        <div id="form">
-            <label for="name">Introducir nombre de la canción</label>
-            <input type="text" id="inputName"><br>
-            <label for="cantante">Introducir nombre del cantante</label>
-            <input type="text" id="inputCantante">
-            <button id="button2" class="button">Agregar una cancion nueva</button>
-        </div></div>
-
-    
-
-    <br>                                                    
-    <br>                                
-    <div id="buscar">
+      <div>
         <button id="button3" class="button">Buscar una cancion</button>
-        <div id="buscarCn"></div>
-    </div>
+        <div id="buscar"></div>
+      </div> 
+
+      <div>
+        <button id="buttonListafavoritas" class="button ">
+          Canciones favoritas
+        </button>
+        <div id="listaFavoritas" style="display: none"></div>
+      </div>
 
 
 
-    <div>
-        <h2>Canciones favoritas</h2>
-        <ul id="listaFavoritas"></ul>
-    </div>
+    </section>       
 
+    
+
+    
+
+    
+
+    
+        
+
+    
 
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
 </html>
