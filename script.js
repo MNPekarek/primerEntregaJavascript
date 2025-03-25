@@ -63,6 +63,7 @@ function actualizarCanciones() {
     tablaInfo.appendChild(fila);
   });
   pruebaBtnFav();
+  
 }
 
 // btn1
@@ -218,6 +219,8 @@ function pruebaBtnFav() {
       const nombre = btn.getAttribute("data-nombre");
       const cantante = btn.getAttribute("data-cantante");
 
+      console.log("el cantante es: ",cantante)
+
       const existe = favoritas.some(
         (fav) => fav.nombre === nombre && fav.cantante === cantante
       );
@@ -280,16 +283,44 @@ function actualizarFav() {
             <td>${cn.nombre}</td>
             <td>${cn.cantante}</td>
             <td>
-              <button class="buttonCancel">❌</button>
+              <button class="buttonCancel" data-nombre2="${cn.nombre}" data-cantante2="${cn.cantante}" >❌</button>
             </td>`;
     tbody.appendChild(fila);
   });
   tabla.appendChild(tbody)
   listaFavoritas.appendChild(tabla)
+  eliminarFav()
+
 }
 
-// <button class="btnFavo" data-nombre="${musica.nombre}" data-cantante="${musica.cantante}">❌</button>
 
-// let li = document.createElement("li");
-// li.textContent = `${cn.nombre} - ${cn.cantante} `;
-// listaFavoritas.appendChild(li);
+
+function eliminarFav() {
+  const btnCancel = document.querySelectorAll(".buttonCancel");
+
+  btnCancel.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const nombre = btn.getAttribute("data-nombre2");
+      const cantante = btn.getAttribute("data-cantante2");
+
+      const indice = favoritas.findIndex(
+        (fav) =>
+          fav.nombre.toLowerCase().trim() === nombre.toLowerCase().trim() &&
+          fav.cantante.toLowerCase() === cantante.toLowerCase()
+      );
+
+      if (indice !== -1) {
+        favoritas.splice(indice, 1); // Elimina el elemento encontrado
+        console.log("Se eliminó:", nombre);
+
+        actualizarFav();
+        guardarLocal();
+      } else {
+        console.log("No se encuentra la canción");
+      }
+    });
+  });
+}
+
+
+  
