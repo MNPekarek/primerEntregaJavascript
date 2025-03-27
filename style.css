@@ -100,6 +100,16 @@ input:focus {
     color: white;
 }
 
+.popupEliminar{
+    background-color: #355C7D;
+    color: white;
+}
+
+.popupConfirmEliminar{
+    background-color: rgb(36, 192, 36);
+   
+}
+
 .popup-error{
     background-color: #C06C84;
     color: rgb(48, 43, 43);

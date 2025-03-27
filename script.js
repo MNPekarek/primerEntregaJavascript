@@ -213,8 +213,6 @@ function pruebaBtnFav() {
       const nombre = btn.getAttribute("data-nombre")
       const cantante = btn.getAttribute("data-cantante")
 
-      console.log("el cantante es: ",cantante)
-
       const existe = favoritas.some(
         (fav) => fav.nombre === nombre && fav.cantante === cantante
       )
@@ -231,9 +229,6 @@ function pruebaBtnFav() {
       } else {
         console.log("La cancion ya esta en favoritas")
       }
-
-      console.log("Lista de favoritas:", favoritas);
-
       actualizarFav()
       guardarLocal()
     })
@@ -284,33 +279,55 @@ function actualizarFav() {
   tabla.appendChild(tbody)
   listaFavoritas.appendChild(tabla)
   eliminarFav()
-
 }
 
 
-
 function eliminarFav() {
-  const btnCancel = document.querySelectorAll(".buttonCancel")
+  const btnCancel = document.querySelectorAll(".buttonCancel");
 
   btnCancel.forEach((btn) => {
     btn.addEventListener("click", () => {
-      const nombre = btn.getAttribute("data-nombre2")
-      const cantante = btn.getAttribute("data-cantante2")
+      const nombre = btn.getAttribute("data-nombre2");
+      const cantante = btn.getAttribute("data-cantante2");
 
-      const indice = favoritas.findIndex(
-        (fav) =>
-          fav.nombre.toLowerCase().trim() === nombre.toLowerCase().trim() &&
-          fav.cantante.toLowerCase() === cantante.toLowerCase()
-      )
+      Swal.fire({
+        title: "¿Estás seguro?",
+        text: `¿Quieres eliminar la canción "${nombre}" de ${cantante}?`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3fc3ee",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
+        allowOutsideClick: false,
+        customClass: {
+          popup: "popupEliminar",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const indice = favoritas.findIndex(
+            (fav) =>
+              fav.nombre.toLowerCase().trim() === nombre.toLowerCase().trim() &&
+              fav.cantante.toLowerCase() === cantante.toLowerCase()
+          )
 
-      if (indice !== -1) {
-        favoritas.splice(indice, 1)
-        console.log("Se eliminó:", nombre)
-        actualizarFav()
-        guardarLocal()
-      } else {
-        console.log("No se encuentra la canción")
-      }
+          if (indice !== -1) {
+            favoritas.splice(indice, 1)            
+            actualizarFav()
+            guardarLocal()
+
+            Toastify({
+              text: `La canción "${nombre}" ha sido eliminada.`,
+              style: {
+                background: "green",                
+              },
+            }).showToast()
+          } else {
+            console.log("No se encuentra la canción");
+            Swal.fire("Error", "La canción no se encuentra en la lista.", "error")
+          }
+        }
+      })
     })
   })
 }
